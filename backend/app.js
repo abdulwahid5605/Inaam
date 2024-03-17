@@ -25,6 +25,7 @@ const searchArea = require("./routes/searchAreaRotue");
 const organization = require("./routes/organizationRouter");
 const doghandlers = require("./routes/dogHandlersRouter");
 const formData = require("./routes/formDataRouter");
+const checklist = require("./routes/checkListRoute");
 
 // It acts as a middleware. Middleware is a function having access to request and response and can modify any request or response
 // .use is a method to add middlewares
@@ -34,6 +35,7 @@ app.use("/api/v1", searchArea);
 app.use("/api/v1", organization);
 app.use("/api/v1", doghandlers);
 app.use("/api/v1", formData);
+app.use("/api/v1", checklist);
 
 // using errorHander Middleware here
 app.use(errorMiddleware);

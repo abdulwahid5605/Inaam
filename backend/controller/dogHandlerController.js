@@ -27,6 +27,7 @@ const addDogHandler = async (req, res) => {
       // If the user exists, update their role to "dog handler"
       if (existingUser.role === "user") {
         existingUser.role = "doghandler";
+        existingUser.name = name;
       }
       await existingUser.save();
     }

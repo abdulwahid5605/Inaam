@@ -9,26 +9,20 @@ const reportSchema = new mongoose.Schema({
     maxLength: [30, "Name cannot exceed more then 30 characters"],
     minLength: [4, "Name should be more then 4 characters"],
   },
-  searchArea: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "SearchArea",
-    required: true,
-  },
   geoTag: {
     type: String,
     required: true,
   },
   checkedItems: [
     {
+      id: {
+        type: Number,
+        required: true,
+      },
+      title: {
+        type: String,
+      },
       information: {
-        type: String,
-        required: true,
-      },
-      additionalInfo: {
-        type: String,
-        required: true,
-      },
-      imageUrl: {
         type: String,
       },
     },
@@ -37,6 +31,10 @@ const reportSchema = new mongoose.Schema({
   dogHandler: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "DogHandler",
+    required: true,
+  },
+  additionalInfo: {
+    type: String,
     required: true,
   },
   isSent: {
@@ -49,6 +47,13 @@ const reportSchema = new mongoose.Schema({
   organizationLogo: {
     type: String,
   },
+  imageList: [
+    {
+      uri: {
+        type: String,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
